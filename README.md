@@ -29,4 +29,5 @@ Create a simple calendar application that allows a user to save events for each 
 
 
  // Example Mock-up:
+ 
  ![05-third-party-apis-homework-demo](https://user-images.githubusercontent.com/100164686/161391064-dccb4695-a09a-44ee-a503-127e5a2334bd.gif)

@@ -1,41 +1,64 @@
 //** PIGEON - PLANNER **//
-
+// =========================================================//
 // IMPORTS: //
         // git@github.com:pigeonsa1t/Pigeon-Planner.git
         // https://momentjs.com/
 
-import React from "./react";
+// import React from "./react";
 
-import Calendar from "./calendar";
+// import Calendar from "./calendar";
+ 
+// =========================================================//
 // GLOBAL VARIABLES: //
-    // *usually, global variables are for big arrays full of data
 
-// THIS WILL NEED TO BE A VARIABLE DEFINING
-
-var displayTimeEl = document.querySelector("#display-time")
+// *** PREVIOUS: *** //
 
 
-var calendar 
+// =========================================================//
+// *** FUTURE: *** //
 
-var currentDay = document.querySelector("#lead");
 
-var prevDay = {
-    
+// =========================================================//
+// *** CURRENT: *** //
+
+
+// current day/month/year:
+var displayDateEl = document.querySelector("#display-date");
+displayDateEl.textContent = moment().format("ddd MMMM Mo YYYY");
+
+// current time:
+var timeNow = moment();
+var currentHour = timeNow.hour();
+console.log(currentHour);
+
+// check the time variable / split id string
+var checkHour = function() {
+    $(".row").each(function() {
+        
+    var id = $(this).attr("id");
+    var splitId = id.split("-");
+    var elementHour = parseInt(splitId[1]);
+
+        if (elementHour < currentHour) {
+            console.log("previous hour");
+        } 
+        if (elementHour === currentHour) {
+            console.log("current hour");
+        } 
+        else (elementHour > currentHour) {
+            console.log("next hour");
+        }
+    });
 };
 
-var nextDay = {
 
-};
-
-var hours = [9, 10, 11, 12, 1, 2, 3, 4, 5];
-
+// =========================================================//
 // FUNCTIONS: //
     // *these will go in the order that they flow down the page.
 
-
-
+    
+// =========================================================//
 // EXPORTS: //
-    // *like reusing code on another sheet.
-//export default function Calendar() {
-//   return <div></div>;
-//}
+
+
+// =========================================================//

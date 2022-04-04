@@ -16,10 +16,9 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"/>
     <link rel="stylesheet" href="./assets/css/style.css"/>
-
     <title>Work Day Scheduler</title>
   </head>
-
+  <!-- ====================================================================================== -->
   <body>
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
@@ -28,21 +27,98 @@
         <button class="btn" id="save-task">Add Task</button>
       </p>
     </header>
-
-    <div class="container">
+<!-- ====================================================================================== -->
+    <section class="container">
       <!-- Timeblocks go here -->
-    </div>
 
-<!-- done based on .gitignore file where I followed tutorial: -->
+    <div id="hour8" class="row time-block">
+      <div class="col-md-1 hour">
+        8 AM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour9" class="row time-block">
+      <div class="col-md-1 hour">
+        9 AM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour10" class="row time-block">
+      <div class="col-md-1 hour">
+        10 AM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour10=1" class="row time-block">
+      <div class="col-md-1 hour">
+        11 AM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour12" class="row time-block">
+      <div class="col-md-1 hour">
+        12 PM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour13" class="row time-block">
+      <div class="col-md-1 hour">
+        1 PM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour14" class="row time-block">
+      <div class="col-md-1 hour">
+        2 PM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour15" class="row time-block">
+      <div class="col-md-1 hour">
+        3 PM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour16" class="row time-block">
+      <div class="col-md-1 hour">
+        4 PM
+      </div>
+      <textarea class="col-md-10 description"></textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    
+    <div id="hour17" class="row time-block">
+      <div class="col-md-1 hour">
+        5 PM
+      </div>
+    </section>
+
+<!-- ====================================================================================== -->
+<!-- SCRIPT: -->
+
+<!-- my moment.JS files -->
     <script id="momentScript">
       const m = moment();
-
       console.log(m.toString());
       // Will print out date/time string for this moment object.
       console.log(m.format("dddd MMM Mo YYYY"));
     </script> 
-
-<!-- my moment.JS files -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
@@ -51,3 +127,4 @@
     <script src="./assets/moment/moment.min.js"></script>
   </body>
 </html>
+<!-- ====================================================================================== -->

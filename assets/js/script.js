@@ -11,6 +11,10 @@ import Calendar from "./calendar";
     // *usually, global variables are for big arrays full of data
 
 // THIS WILL NEED TO BE A VARIABLE DEFINING
+
+var displayTimeEl = document.querySelector("#display-time")
+
+
 var calendar 
 
 var currentDay = document.querySelector("#lead");

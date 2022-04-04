@@ -1,0 +1,300 @@
+HOW TO CREATE A MOMENT OBJECT:
+
+- Source: watching videos by: dcode
+    "Moment.js Tutorials"
+        https://www.youtube.com/watch?v=TVJ-fuwr4gs&list=PLVvjrrRCBy2LWFkR7opQxWp4z0en6OHgw&index=2
+##############################################################################################
+CURRENT DATE + TIME:
+    - This should be inlcuded in whichever method you choose:
+
+<script>
+    console.log(moment());
+        let m = moment();
+    ...;
+</script>
+
+
+* In DevTools: 
+    " toString() => ${m.toString()} "
+    " toISOString() => ${m.toISOString()} " 
+____________________________________________
+
+##############################################################################################
+
+
+1. FIRST WAY TO CREATE A MOMENT OBJECT:
+
+    console.log(m);
+    * This is basically a "beefed up" date object.
+
+OBSERVATION:
+    Compare this
+        " console.log(m); " 
+
+    to previous 
+        " console.log(moment()); "
+
+
+WHEN YOU CREATE A MOMENT OBJECT, THEY ARE BY DEFAULT IN "LOCAL MODE"
+
+    What this means is: When you're displaying/formatting date/time from moment object...
+        ...they will display in your own local time zone.
+
+_____________________________________________________________________
+TO DEMONSTRATE: 
+
+    console.log('toString() => ${m.toString()}');
+    * This will give me date/time of 'm' moment object in my local time zone
+
+    console.log('toISOString() => ${m.toISOString()}');
+    * This will give me 'm' moment 'date/time' string in an ISO 8601 format in UTC.
+
+##############################################################################################
+
+
+2. SECOND WAY TO CREATE MOMENT OBJECT:
+- Create from ISO 8601 formatted 'DATE/TIME' string
+
+    m = moment('2022-04-03T23:10:00.000');  
+
+An ISO 8601 string is a standard for displaying dates and times.
+    * Most languages will have a way ( either natively  through an extension )
+        to output your dates and times in this format.  
+    * So, you should be safe just simply parsing by passing through an ISO 8601 'DATE/TIME' string.
+
+This will give me date/time of 'm' moment object in my local time zone
+
+    console.log('toISOString() => ${m.toISOString()}');
+
+This will give me 'm' moment 'date/time' string in an ISO 8601 format in UTC.
+
+_____________________________________________________________________
+
+** HELP!!
+
+    FOR SOME REASON - ^^ THIS IS NOT SHOWING UP ON CHROME DEV TOOLS FOR ME...
+    IT CONSOLE LOGS EXACTLY WHAT I TYPED INSTEAD OF THE INFO IT ASKS FOR.
+
+##############################################################################################
+
+
+3. THIRD WAY TO CREATE MOMENT OBJECT: 
+- Parsing using a format
+    * most reccomended way to parse using moment.js
+    * will guaruntee you will get accurate results each time 
+
+Start with this:
+
+    m = moment(' ');
+
+Here we are passing in a random daytime string:
+
+    m = moment('04/03/2022 02:45PM');
+
+If you want moment.js to accurately pick up this day, parse in a second argument (*a format):
+
+    m = moment('04/03/2022 02:45PM', '');
+
+_____________________________________________________________________
+*** TIP: Go to the moment.js docs and go to "String + Format" section.
+    Find which one of these matches up with which part of your daytime string.
+_____________________________________________________________________
+EXAMPLE:
+
+    ("MM/DD/YYYY h:mmA")
+Translation:
+    2 digit Month
+    2 digit Day
+    4 digit Year 
+    <space> 
+    1 digit Hour: 
+    = lowercase h
+    h: mm
+    mm = 2 digit Mins
+    A = AM or PM
+
+With this, we have successfully told moment was format this is in.
+    Moment will now give me an accurate and well-formed date object.
+_____________________________________________________________________
+
+##############################################################################################
+
+
+4. FOURTH WAY TO CREATE MOMENT OBJECT:
+- Parsing using milliseconds (because of Epoch?)
+
+Create using milliseconds since epoch (Jan 1st 1970):
+
+    m = moment(600000)
+    * This is = 10 minutes 
+
+Create using seconds since epoch (Jan 1st 1970):
+
+    m = moment.unix(7200):
+    * This is = 2 hours
+
+* The .unix method allows you to do it with seconds instead.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+_____________________________________________________________________
+/////////////////////////////////////////////////////////////////////
+Now if you say...
+
+    m = moment.utc();
+
+... This will create a moment object in UTC mode. You get the exact same time for BOTH outputs
+/////////////////////////////////////////////////////////////////////
+_____________________________________________________________________
+GETTING UNITS:
+- When you want to get a particular unit from a moment object. 
+    For instance: If you want to know what year a unit is in.
+
+EXAMPLE:
+
+    const m = moment();
+    * Remember, this will give you moment object for current date and time.
+
+This will show current date and time in local format:
+
+    console.log(m.toString());
+
+Other "GETTING UNITS":
+
+    console.log(m.minutes());
+    console.log(m.hour());
+    console.log(m.week());
+_____________________________________________________________________
+Or:
+- Display which quarter of the year the unit is in:
+
+    Put in (as an argument) your actual unit
+
+        console.log(m.get("quarter"));
+
+    This is equiavalent to saying:
+
+        console.log(m.quarter());
+_____________________________________________________________________
+*** Moment also lets you use plurals - hour === hours.
+_____________________________________________________________________
+
+SETTING UNITS:
+
+EXAMPLE:
+
+    m.minutes(52);
+    m.hour(14);
+    m.week(4);
+
+This changes minute to indicated minute value from: current => input
+
+For day of the week:
+
+    m.set("day", 4)
+    * min = 0 / Sunday ||  max = 6 / Saturday
+
+*** If you use a number > possible, it will overlap. So if you pick "day 8" 
+        out of 6 possible, it will count to 6 and then restart:
+
+        ( 1, 2, ... 5, 6, 0, *1* )
+
+    Therefore, day 8 = Monday.
+
+COMPARE TWO MOMENT AND FIND OUT WHICH ONE IS MIN/MAX:
+
+    const differentMoment = moment("2022-04-03");
+
+    console.log(moment.min(moment(), differentMoment).toString());
+    * parse in currrent day/time
+    * will return max of these two objects
+    * output as a string
+_____________________________________________________________________
+/////////////////////////////////////////////////////////////////////
+<script id="momentScript">
+
+    const m = moment();
+
+        console.log(m.toString());
+    * Will print out date/time string for this moment object.
+
+        console.log(m.format("dddd MMM Mo YYYY"));
+    - Wednesday, May 5th 2019
+    
+        console.log(m.format("[Yeah the day is] dddd [and we're in] YYYY"));
+    - Yeah the day is Wednesday, May 5th 2019
+
+</script> 
+/////////////////////////////////////////////////////////////////////
+_____________________________________________________________________
+/////////////////////////////////////////////////////////////////////
+<script id="momentScript">
+
+    const m = moment();
+    const m2 = moment("2022-04-03")
+
+FROM:
+    console.log(m2.fromNow());
+    * "How long ago was ____ from ____?"
+        - "__ days ago."
+
+FROM NOW:
+    console.log(m2.from("2022-02-10"));
+    * "How long ago is <thisMoment> from <now>?"
+        - "___ months ago"
+_____________________________________________________________________      
+*** Good for determining when posts were made/videos updloaded
+
+</script> 
+/////////////////////////////////////////////////////////////////////
+_____________________________________________________________________
+/////////////////////////////////////////////////////////////////////
+<script id="momentScript">
+
+    const m = moment();
+    const m2 = moment("2022-04-03")
+ 
+This represents an event on a calendar:
+
+    const eventMoment = moment().add(6, "days")
+    *6 days from now
+
+    console.log(eventMoment.toString());
+    console.log(eventMoment.calendar());  
+
+Should log: 
+    "Today at 5:30 PM"
+
+    console.log(m2.diff(m));
+    * Output shows difference in time in milliseconds
+
+Can parse in a second argument:
+
+    console.log(m.diff(m2, "days"));
+    * Will return number value for days
+
+</script> 
+/////////////////////////////////////////////////////////////////////
+_____________________________________________________________________
+/////////////////////////////////////////////////////////////////////
+
+JSON METHOD:
+
+<script id="momentScript">
+
+    const m = moment();
+    const m2 = moment("2022-04-03")
+
+    m2.toJSON = function() {
+        return this.format("[this is JSON, btw here is the date:] MM/DD/YYYY")
+    };
+
+    const jsonObj = {
+        momentObj: m2
+    };
+
+    console.log(JSON.stringify(jsonObj));
+
+</script> 
+
+/////////////////////////////////////////////////////////////////////
+_____________________________________________________________________

@@ -21,8 +21,7 @@
 // =========================================================//
 // *** CURRENT: *** //
 
-
-// current day/month/year:
+// DISPLAY CURRENT TIME/DATE: //
 var displayDateEl = document.querySelector("#display-date");
 displayDateEl.textContent = moment().format("ddd MMMM Mo YYYY");
 
@@ -42,7 +41,7 @@ var checkHour = function() {
         if (elementHour < currentHour) {
             console.log("previous hour");
         } 
-        if (elementHour === currentHour) {
+        else if (elementHour === currentHour) {
             console.log("current hour");
         } 
         else (elementHour > currentHour) {
@@ -51,14 +50,11 @@ var checkHour = function() {
     });
 };
 
-
 // =========================================================//
 // FUNCTIONS: //
     // *these will go in the order that they flow down the page.
-
-    
+  
 // =========================================================//
-// EXPORTS: //
-
+// LOCAL STORAGE: //
 
 // =========================================================//

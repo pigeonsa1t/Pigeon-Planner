@@ -33,6 +33,7 @@ Create a simple calendar application that allows a user to save events for each 
    THEN - the saved events persist.
 
 ### Finished product:
+![Screenshot 2022-04-06 161305](https://user-images.githubusercontent.com/100164686/162063346-fce5c6c8-4018-41b0-a2dd-bb40e15cdcd7.png)
+![Screenshot 2022-04-06 161348](https://user-images.githubusercontent.com/100164686/162063356-108d9334-a9d5-4910-b2bc-f38eb0fa9a88.png)
 
-assets\images\Screenshot 2022-04-06 161305.png
-assets\images\Screenshot 2022-04-06 161348.png
+made by pigeonsa1t 🕊

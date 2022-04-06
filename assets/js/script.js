@@ -1,5 +1,7 @@
 //** PIGEON - PLANNER **//
+
 // =========================================================//
+
 // GLOBAL VARIABLES: 
 
 // DISPLAY CURRENT TIME/DATE: 
@@ -20,13 +22,20 @@ var splitId = id.split("hour");
 // console.log(splitId[1])
 var elementHour = parseInt(splitId[1]);
     //console.log(id, splitId, elementHour)
+
+    // THIS ONE CHECKS FOR ANY HOURS WITH VALUE LESS THAN CURRENT HOUR AND
+    // CHANGES ALL PREV ROW COLORS TO GREY:
     if (elementHour < currentHour) {
         $(this).addClass("past")
     } 
+    // THIS ONE IGNORES ALL PREVIOUS HOURS, AND THEN STOPS AT THE CURRENT
+    // HOUR AND CHANGES ROW COLOR TO RED:
     else if (elementHour === currentHour) {
         $(this).removeClass("past");
         $(this).addClass("present")
     }
+    // THIS ONE IGNORES PREVIOUS AND CURRENT HOURS, AND THEN CHANGES ALL
+    // FUTURE ROW COLORS TO GREEN:
     else {
     $(this).removeClass("past");
     $(this).removeClass("present");
@@ -34,6 +43,7 @@ var elementHour = parseInt(splitId[1]);
     }
     });
 };
+
 // =========================================================//
 // FUNCTIONS: //
 

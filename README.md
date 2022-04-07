@@ -1,17 +1,17 @@
 # Pigeon-Planner
 
 Create a simple calendar application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
-
+___________________________________________________________________________
 ### AS AN - employee with a busy schedule...
 
 ### I WANT - to add important events to a daily planner...
 
 ### SO THAT - I can manage my time effectively.
-
+___________________________________________________________________________
 // Example Mock-up:
 
 ![05-third-party-apis-homework-demo](https://user-images.githubusercontent.com/100164686/161391064-dccb4695-a09a-44ee-a503-127e5a2334bd.gif)
-
+___________________________________________________________________________
 ## GIVEN I am using a daily planner to create a schedule ...
 
 1. WHEN - I open the planner:
@@ -35,5 +35,6 @@ Create a simple calendar application that allows a user to save events for each 
 ### Finished product:
 ![Screenshot 2022-04-06 161305](https://user-images.githubusercontent.com/100164686/162063346-fce5c6c8-4018-41b0-a2dd-bb40e15cdcd7.png)
 ![Screenshot 2022-04-06 161348](https://user-images.githubusercontent.com/100164686/162063356-108d9334-a9d5-4910-b2bc-f38eb0fa9a88.png)
+___________________________________________________________________________
 
-made by pigeonsa1t 🕊
++  made by pigeonsa1t 🕊
